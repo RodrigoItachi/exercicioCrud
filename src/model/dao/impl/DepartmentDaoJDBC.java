@@ -41,7 +41,7 @@ public class DepartmentDaoJDBC implements DepartmentDao {
 			} else {
 				throw new DbException("Unexpected error! No rows affected.");
 			}
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			throw new DbException(e.getMessage());
 		} finally {
 			DBConnection.closeStatement(preparedStatement);
@@ -56,7 +56,7 @@ public class DepartmentDaoJDBC implements DepartmentDao {
 			preparedStatement.setString(1, department.getName());
 			preparedStatement.setInt(2, department.getId());
 			preparedStatement.executeUpdate();
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			throw new DbException(e.getMessage());
 		} finally {
 			DBConnection.closeStatement(preparedStatement);
@@ -65,8 +65,19 @@ public class DepartmentDaoJDBC implements DepartmentDao {
 
 	@Override
 	public void deleteById(Integer id) {
-		// TODO Auto-generated method stub
-
+		PreparedStatement preparedStatement = null;
+		try {
+			preparedStatement = connection.prepareStatement("DELETE FROM department WHERE Id = ?");
+			preparedStatement.setInt(1, id);
+			int rowsAffected = preparedStatement.executeUpdate();
+			if (rowsAffected == 0) {
+				throw new DbException("Nonexistent id.");
+			}
+		} catch (SQLException e) {
+			throw new DbException(e.getMessage());
+		} finally {
+			DBConnection.closeStatement(preparedStatement);
+		}
 	}
 
 	@Override
