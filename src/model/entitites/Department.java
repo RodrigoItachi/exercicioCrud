@@ -1,10 +1,14 @@
 package model.entitites;
 
 public class Department {
-	private Integer id;//pk
+	private Integer id;// pk
 	private String name;
 
 	public Department() {
+	}
+
+	public Department(String name) {
+		this.name = name;
 	}
 
 	public Department(Integer id, String name) {
