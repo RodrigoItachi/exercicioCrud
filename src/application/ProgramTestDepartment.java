@@ -13,10 +13,13 @@ public class ProgramTestDepartment {
 		DepartmentDao departmentDao = FactoryDao.createDepartmentDao();
 		List<Department> departments = departmentDao.findAll();
 		departments.forEach(System.out::println);
+		System.out.println();
 
+		
 		System.out.println("Test 2 - findById");
 		Department department = departmentDao.findById(2);
 		System.out.println(department);
+		System.out.println();
 
 		System.out.println("Test 3 - insert");
 //		Department department2 = new Department("House");
@@ -25,12 +28,15 @@ public class ProgramTestDepartment {
 		System.out.println();
 
 		System.out.println("Test 4 - update");
-		department = departmentDao.findById(9);
-		System.out.println("Department name before: " + department.getName());
-		department.setName("Car");
-		departmentDao.update(department);
-		System.out.println("Department name after: " + department.getName());
+//		department = departmentDao.findById(9);
+//		System.out.println("Department name before: " + department.getName());
+//		department.setName("Car");
+//		departmentDao.update(department);
+//		System.out.println("Department name after: " + department.getName());
 
+		System.out.println("Test 5 - delete");
+		departmentDao.deleteById(9);
+		System.out.println("Delete completed! ");
 	}
 
 }
