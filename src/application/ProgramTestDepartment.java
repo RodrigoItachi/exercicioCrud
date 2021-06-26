@@ -19,9 +19,18 @@ public class ProgramTestDepartment {
 		System.out.println(department);
 
 		System.out.println("Test 3 - insert");
-		Department department2 = new Department("House");
-		departmentDao.insert(department2);
-		System.out.println("Id: " + department2.getId());
+//		Department department2 = new Department("House");
+//		departmentDao.insert(department2);
+//		System.out.println("Id: " + department2.getId());
+		System.out.println();
+
+		System.out.println("Test 4 - update");
+		department = departmentDao.findById(9);
+		System.out.println("Department name before: " + department);
+		department.setName("Car");
+		departmentDao.update(department);
+		System.out.println("Department name after: " + department);
+
 	}
 
 }
