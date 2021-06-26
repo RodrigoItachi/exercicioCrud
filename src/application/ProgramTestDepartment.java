@@ -26,10 +26,10 @@ public class ProgramTestDepartment {
 
 		System.out.println("Test 4 - update");
 		department = departmentDao.findById(9);
-		System.out.println("Department name before: " + department);
+		System.out.println("Department name before: " + department.getName());
 		department.setName("Car");
 		departmentDao.update(department);
-		System.out.println("Department name after: " + department);
+		System.out.println("Department name after: " + department.getName());
 
 	}
 
