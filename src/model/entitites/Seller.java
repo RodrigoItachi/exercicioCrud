@@ -1,9 +1,9 @@
 package model.entitites;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Seller {
-	private Integer id;//pk
+	private Integer id;// pk
 	private String name;
 	private String email;
 	private Date birthDate;
@@ -13,8 +13,15 @@ public class Seller {
 	public Seller() {
 	}
 
+	public Seller(String name, String email, Date birthDate, Double baseSalary, Department department) {
+		this.name = name;
+		this.email = email;
+		this.birthDate = birthDate;
+		this.baseSalary = baseSalary;
+		this.department = department;
+	}
+
 	public Seller(Integer id, String name, String email, Date birthDate, Double baseSalary, Department department) {
-		super();
 		this.id = id;
 		this.name = name;
 		this.email = email;
